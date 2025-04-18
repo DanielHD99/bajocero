@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bajo Cero Band - Video 360</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      background-color: #000;
+      overflow: hidden;
+      font-family: sans-serif;
+    }
+
+    #logo {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      z-index: 10;
+      width: 120px;
+      height: auto;
+    }
+
+    #fullscreen-btn {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      z-index: 10;
+      padding: 10px 16px;
+      background-color: rgba(255, 255, 255, 0.1);
+      border: 1px solid #fff;
+      color: white;
+      cursor: pointer;
+      border-radius: 6px;
+      font-size: 14px;
+    }
+
+    video {
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+    }
+  </style>
+</head>
+<body>
+  <!-- Logo (reemplaza 'logo.png' con tu archivo real) -->
+  <img id="logo" src="logo.png" alt="Bajo Cero Band Logo" />
+
+  <!-- Botón de pantalla completa -->
+  <button id="fullscreen-btn">Pantalla completa</button>
+
+  <!-- Video 360 con controles activados -->
+  <video id="video360" src="bajo_cero_band.mp4" autoplay loop controls playsinline crossorigin="anonymous"></video>
+
+  <script>
+    const video = document.getElementById('video360');
+    const btn = document.getElementById('fullscreen-btn');
+
+    btn.addEventListener('click', () => {
+      if (video.requestFullscreen) {
+        video.requestFullscreen();
+      } else if (video.webkitRequestFullscreen) {
+        video.webkitRequestFullscreen();
+      } else if (video.msRequestFullscreen) {
+        video.msRequestFullscreen();
+      }
+    });
+  </script>
+</body>
+</html>
